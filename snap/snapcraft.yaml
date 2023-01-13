@@ -1,0 +1,26 @@
+name: netplan-test
+base: core20
+version: '0.1'
+summary: Single-line elevator pitch for your amazing snap # 79 char long summary
+description: |
+  This is my-snap's description. You have a paragraph or two to tell the
+  most important story about your snap. Keep it under 100 words though,
+  we live in tweetspace and your description wants to look good in the snap
+  store.
+
+grade: stable
+confinement: strict
+
+hooks:
+  post-refresh:
+    plugs: [network-setup-control]
+
+apps:
+  netplan-test:
+    command: bin/sh
+
+parts:
+  netplan-test:
+    plugin: nil
+    stage-packages:
+      - dash
