@@ -2,6 +2,9 @@
 
 set -e
 
+# This will log to a file
+exec >> "${SNAP_COMMON}/post-refresh-hook.log" 2>&1
+
 # This will log to the system log
 logger "Hello, world!"
 
